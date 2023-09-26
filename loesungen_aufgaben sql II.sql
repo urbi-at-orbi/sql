@@ -6,9 +6,21 @@
 --
 INSERT INTO
   mitarbeiter_projekte
+SELECT
+  id, (SELECT id FROM projekte WHERE bezeichnung="Schwimmende Tribüne")
+FROM
+  mitarbeiter m
+WHERE
+  m.nachname IN ("Groß", "Bier");
+
+/* -- Alternative
+INSERT INTO
+  mitarbeiter_projekte
 VALUES
   ((SELECT id FROM mitarbeiter WHERE nachname = "Groß"),(SELECT id FROM projekte WHERE bezeichnung="Schwimmende Tribüne")),
   ((SELECT id FROM mitarbeiter WHERE nachname = "Bier"),(SELECT id FROM projekte WHERE bezeichnung="Schwimmende Tribüne"));
+*/
+
 
 --
 -- Aufgabe 2
@@ -131,3 +143,66 @@ HAVING
 --
 -- Aufgabe 6
 --
+SELECT
+  m.vorname, m.nachname, o.ortsname, r.bezeichnung
+FROM
+  mitarbeiter m
+JOIN
+  orte o ON m.ort = o.id
+JOIN
+  rollen r ON m.rolle_id = r.id
+WHERE
+  r.bezeichnung = "Auszubildende:r";
+
+
+INSERT INTO
+  mitarbeiter_projekte
+SELECT
+  m.id, (SELECT id FROM projekte p WHERE p.bezeichnung = "Schwimmende Tribüne")
+FROM
+  mitarbeiter m
+WHERE
+  m.rolle_id = (SELECT id FROM rollen r WHERE r.bezeichnung = "Auszubildende:r");
+
+/* with JOIN
+INSERT INTO
+  mitarbeiter_projekte
+SELECT
+  m.id, (SELECT id FROM projekte p WHERE p.bezeichnung = "Schwimmende Tribüne")
+FROM
+  mitarbeiter m
+JOIN
+  rollen r ON m.rolle_id = r.id
+WHERE
+  r.bezeichnung = "Auszubildende:r";
+*/
+
+
+--
+-- Aufgabe 7
+--
+SELECT
+  p.bezeichnung, m.vorname, m.nachname
+FROM
+  mitarbeiter_projekte mp
+JOIN
+  mitarbeiter m ON m.id = mp.id_mitarbeiter
+JOIN
+  projekte p ON p.id = mp.id_projekt
+WHERE
+  p.abschluss IS NOT NULL;
+
+
+--
+-- Aufgabe 8
+--
+
+-- we don't have a rolle "Projektleiter:in" in our system
+SELECT
+	r.bezeichnung, COUNT(r.bezeichnung) Anzahl
+FROM
+  mitarbeiter m
+JOIN
+  rollen r ON m.rolle_id = r.id
+GROUP BY
+  r.bezeichnung
