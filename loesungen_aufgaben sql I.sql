@@ -6,608 +6,590 @@
 -- Aufgabe 1
 --
 INSERT INTO
-	projekte (bezeichnung, beginn, abschluss)
+  projekte (bezeichnung, beginn, abschluss)
 VALUES
-	("Aus Grau wird Bunt", "2023-08-01", "2024-01-31");
-
-
-INSERT INTO 
-	ressorts (bezeichnung)
-VALUES
-	("Stadtgärtnerei");
+  ("Aus Grau wird Bunt", "2023-08-01", "2024-01-31");
 
 
 INSERT INTO
-	orte (plz, ortsname)
+  ressorts (bezeichnung)
 VALUES
-	("56271", "Kleinmaischeid"),
-    ("45739", "Oer-Erkenschwick"),
-    ("06131", "Zornheim");
+  ("Stadtgärtnerei");
 
 
 INSERT INTO
-	mitarbeiter(nachname, vorname, strasse, hausnummer, ort, ressort)
+  orte (plz, ortsname)
 VALUES
-	("Groß", "Henriette", "Düsterwald Str.", "3", (SELECT id FROM orte WHERE plz = "56271"), (SELECT id FROM ressorts WHERE bezeichnung = "Stadtgärtnerei")),
-    ("Holstein", "Manfred", "Engelbertstr.", "23", (SELECT id FROM orte WHERE plz = "45739"), (SELECT id FROM ressorts WHERE bezeichnung = "Stadtgärtnerei")),
-    ("Ganz", "Anette", "Engelbertstr.", "25", (SELECT id FROM orte WHERE plz = "45739"), (SELECT id FROM ressorts WHERE bezeichnung = "Stadtgärtnerei")),
-    ("Brown", "Sharon", "Engelbertstr.", "26", (SELECT id FROM orte WHERE plz = "45739"), (SELECT id FROM ressorts WHERE bezeichnung = "Stadtgärtnerei")),
-    ("Neuneier", "Felix", "Professor-Kneib-Str.", "349", (SELECT id FROM orte WHERE plz = "06131"), (SELECT id FROM ressorts WHERE bezeichnung = "Stadtgärtnerei")),
-	("Neuneier", "Sabiene", "Professor-Kneib-Str.", "349", (SELECT id FROM orte WHERE plz = "06131"), (SELECT id FROM ressorts WHERE bezeichnung = "Stadtgärtnerei")),
-	("Neuneier", "Sarah", "Professor-Kneib-Str.", "349", (SELECT id FROM orte WHERE plz = "06131"), (SELECT id FROM ressorts WHERE bezeichnung = "Stadtgärtnerei"));
-	
-	
+  ("56271", "Kleinmaischeid"),
+  ("45739", "Oer-Erkenschwick"),
+  ("06131", "Zornheim");
+
+
 INSERT INTO
-	mitarbeiter_projekte
+  mitarbeiter(nachname, vorname, strasse, hausnummer, ort, ressort)
 VALUES
-	((SELECT id FROM mitarbeiter WHERE nachname="Groß" AND vorname="Henriette") , (SELECT id FROM projekte WHERE bezeichnung = "Aus Grau wird Bunt")),
-	((SELECT id FROM mitarbeiter WHERE nachname="Holstein" AND vorname="Manfred") , (SELECT id FROM projekte WHERE bezeichnung = "Aus Grau wird Bunt")),
-	((SELECT id FROM mitarbeiter WHERE nachname="Ganz" AND vorname="Anette") , (SELECT id FROM projekte WHERE bezeichnung = "Aus Grau wird Bunt")),
-	((SELECT id FROM mitarbeiter WHERE nachname="Brown" AND vorname="Sharon") , (SELECT id FROM projekte WHERE bezeichnung = "Aus Grau wird Bunt")),
-	((SELECT id FROM mitarbeiter WHERE nachname="Neuneier" AND vorname="Felix") , (SELECT id FROM projekte WHERE bezeichnung = "Aus Grau wird Bunt"));
+  ("Groß", "Henriette", "Düsterwald Str.", "3", (SELECT id FROM orte WHERE plz = "56271"), (SELECT id FROM ressorts WHERE bezeichnung = "Stadtgärtnerei")),
+  ("Holstein", "Manfred", "Engelbertstr.", "23", (SELECT id FROM orte WHERE plz = "45739"), (SELECT id FROM ressorts WHERE bezeichnung = "Stadtgärtnerei")),
+  ("Ganz", "Anette", "Engelbertstr.", "25", (SELECT id FROM orte WHERE plz = "45739"), (SELECT id FROM ressorts WHERE bezeichnung = "Stadtgärtnerei")),
+  ("Brown", "Sharon", "Engelbertstr.", "26", (SELECT id FROM orte WHERE plz = "45739"), (SELECT id FROM ressorts WHERE bezeichnung = "Stadtgärtnerei")),
+  ("Neuneier", "Felix", "Professor-Kneib-Str.", "349", (SELECT id FROM orte WHERE plz = "06131"), (SELECT id FROM ressorts WHERE bezeichnung = "Stadtgärtnerei")),
+  ("Neuneier", "Sabiene", "Professor-Kneib-Str.", "349", (SELECT id FROM orte WHERE plz = "06131"), (SELECT id FROM ressorts WHERE bezeichnung = "Stadtgärtnerei")),
+  ("Neuneier", "Sarah", "Professor-Kneib-Str.", "349", (SELECT id FROM orte WHERE plz = "06131"), (SELECT id FROM ressorts WHERE bezeichnung = "Stadtgärtnerei"));
+
+
+INSERT INTO
+  mitarbeiter_projekte
+VALUES
+  ((SELECT id FROM mitarbeiter WHERE nachname="Groß" AND vorname="Henriette") , (SELECT id FROM projekte WHERE bezeichnung = "Aus Grau wird Bunt")),
+  ((SELECT id FROM mitarbeiter WHERE nachname="Holstein" AND vorname="Manfred") , (SELECT id FROM projekte WHERE bezeichnung = "Aus Grau wird Bunt")),
+  ((SELECT id FROM mitarbeiter WHERE nachname="Ganz" AND vorname="Anette") , (SELECT id FROM projekte WHERE bezeichnung = "Aus Grau wird Bunt")),
+  ((SELECT id FROM mitarbeiter WHERE nachname="Brown" AND vorname="Sharon") , (SELECT id FROM projekte WHERE bezeichnung = "Aus Grau wird Bunt")),
+  ((SELECT id FROM mitarbeiter WHERE nachname="Neuneier" AND vorname="Felix") , (SELECT id FROM projekte WHERE bezeichnung = "Aus Grau wird Bunt"));
 
 
 --
 -- Aufgabe 2
 --
 UPDATE
-	mitarbeiter
+  mitarbeiter
 SET
-	personalnummer = "2701007"
+  personalnummer = "2701007"
 WHERE
-	nachname = "Groß" AND
-	vorname = "Henriette";
-    
-    
-UPDATE
-	mitarbeiter
-SET
-	personalnummer = "2802123"
-WHERE
-	nachname = "Holstein" AND
-	vorname = "Manfred";
-    
-UPDATE
-	mitarbeiter
-SET
-	personalnummer = "2903258"
-WHERE
-	nachname = "Ganz" AND
-	vorname = "Anette";
-    
+  nachname = "Groß" AND
+  vorname = "Henriette";
+
 
 UPDATE
-	mitarbeiter
+  mitarbeiter
 SET
-	personalnummer = "3004951"
+  personalnummer = "2802123"
 WHERE
-	nachname = "Brown" AND
-	vorname = "Sharon";
-    
+  nachname = "Holstein" AND
+  vorname = "Manfred";
+
 UPDATE
-	mitarbeiter
+  mitarbeiter
 SET
-	personalnummer = "3105351"
+  personalnummer = "2903258"
 WHERE
-	nachname = "Neuneier" AND
-	vorname = "Felix";
+  nachname = "Ganz" AND
+  vorname = "Anette";
+
+
+UPDATE
+  mitarbeiter
+SET
+  personalnummer = "3004951"
+WHERE
+  nachname = "Brown" AND
+  vorname = "Sharon";
+
+UPDATE
+  mitarbeiter
+SET
+  personalnummer = "3105351"
+WHERE
+  nachname = "Neuneier" AND
+  vorname = "Felix";
   
   
 --
 -- Aufgabe 3
 --
 UPDATE
-	orte
+  orte
 SET
-	plz = 55270
+  plz = 55270
 WHERE
-	ortsname = "Zornheim";
-    
-    
+  ortsname = "Zornheim";
+
+
 DELETE FROM
-	mitarbeiter
+  mitarbeiter
 WHERE
-	nachname = "Neuneier" AND
-    vorname = "Sarah";
+  nachname = "Neuneier" AND
+  vorname = "Sarah";
 
 
 --
 -- Aufgabe 4
 --
 INSERT INTO
-	ressorts (bezeichnung)
-VALUE
-	("Stadtkasse");
+  ressorts (bezeichnung)
+VALUES
+  ("Stadtkasse");
 
 
 INSERT INTO
-	orte (plz, ortsname)
+  orte (plz, ortsname)
 VALUES
-	("56203", "Höhr-Grenzhausen");
+  ("56203", "Höhr-Grenzhausen");
 
 
 INSERT INTO
-	mitarbeiter (personalnummer, nachname, vorname, strasse, hausnummer, ort, ressort)
+  mitarbeiter (personalnummer, nachname, vorname, strasse, hausnummer, ort, ressort)
 VALUES
-	("3206369", "Neumann", "Lisa", "Gartenstr.", "20",
+  ("3206369", "Neumann", "Lisa", "Gartenstr.", "20",
 	(SELECT id FROM orte WHERE plz = "56203") , (SELECT id FROM ressorts WHERE bezeichnung = "Stadtkasse"));
-	
+
 
 INSERT INTO
-	mitarbeiter_projekte
+  mitarbeiter_projekte
 VALUES
-	((SELECT id FROM mitarbeiter WHERE personalnummer = "3206369") , (SELECT id FROM projekte WHERE bezeichnung = "Aus Grau wird Bunt"));
-	
+  ((SELECT id FROM mitarbeiter WHERE personalnummer = "3206369") , (SELECT id FROM projekte WHERE bezeichnung = "Aus Grau wird Bunt"));
+
 
 --
 -- Aufgabe 5
 --
 UPDATE
-	mitarbeiter
-SET 
-	ort = (SELECT ort FROM mitarbeiter WHERE nachname = "Holstein"),
-    strasse = (SELECT strasse FROM mitarbeiter WHERE nachname = "Holstein"),
-    hausnummer = (SELECT hausnummer FROM mitarbeiter WHERE nachname = "Holstein")
+  mitarbeiter
+SET
+  ort = (SELECT ort FROM mitarbeiter WHERE nachname = "Holstein"),
+  strasse = (SELECT strasse FROM mitarbeiter WHERE nachname = "Holstein"),
+  hausnummer = (SELECT hausnummer FROM mitarbeiter WHERE nachname = "Holstein")
 WHERE
-	nachname = "Groß";
+  nachname = "Groß";
 
 
 --
 -- Aufgabe 6
 --
 ALTER TABLE
-	mitarbeiter
+  mitarbeiter
 ADD
-	geburtsdatum DATE;
+  geburtsdatum DATE;
 
 
 -- Geburtstage eintragen
 UPDATE
-	mitarbeiter
+  mitarbeiter
 SET
-	geburtsdatum = "1975-02-25"
+  geburtsdatum = "1975-02-25"
 WHERE
-	nachname = "Groß" AND
-    vorname = "Henriette";
-
-
-UPDATE
-	mitarbeiter
-SET
-	geburtsdatum = "1966-07-02"
-WHERE
-	nachname = "Holstein" AND
-    vorname = "Manfred";
-    
-UPDATE
-	mitarbeiter
-SET
-	geburtsdatum = "1999-11-13"
-WHERE
-	nachname = "Ganz" AND
-    vorname = "Anette";
-    
-UPDATE
-	mitarbeiter
-SET
-	geburtsdatum = "1998-10-14"
-WHERE
-	nachname = "Brown" AND
-    vorname = "Sharon";
-    
-UPDATE
-	mitarbeiter
-SET
-	geburtsdatum = "1959-04-22"
-WHERE
-	nachname = "Neuneier" AND
-    vorname = "Felix";
+  nachname = "Groß" AND
+  vorname = "Henriette";
 
 UPDATE
-	mitarbeiter
+  mitarbeiter
 SET
-	geburtsdatum = "2001-06-08"
+  geburtsdatum = "1966-07-02"
 WHERE
-	nachname = "Neumann" AND
-    vorname = "Lisa";
-    
+  nachname = "Holstein" AND
+  vorname = "Manfred";
+
 UPDATE
-	mitarbeiter
+  mitarbeiter
 SET
-	geburtsdatum = "1997-08-11"
+  geburtsdatum = "1999-11-13"
 WHERE
-	nachname = "Neuneier" AND
-    vorname = "Sabiene";
+  nachname = "Ganz" AND
+  vorname = "Anette";
+
+UPDATE
+  mitarbeiter
+SET
+  geburtsdatum = "1998-10-14"
+WHERE
+  nachname = "Brown" AND
+  vorname = "Sharon";
+
+UPDATE
+  mitarbeiter
+SET
+  geburtsdatum = "1959-04-22"
+WHERE
+  nachname = "Neuneier" AND
+  vorname = "Felix";
+
+UPDATE
+  mitarbeiter
+SET
+  geburtsdatum = "2001-06-08"
+WHERE
+  nachname = "Neumann" AND
+  vorname = "Lisa";
+
+UPDATE
+  mitarbeiter
+SET
+  geburtsdatum = "1997-08-11"
+WHERE
+  nachname = "Neuneier" AND
+  vorname = "Sabiene";
 
 
 --
 -- Aufgabe 7
 --
 INSERT INTO
-	projekte (bezeichnung, beginn, abschluss)
-VALUE
-	("Money Money Money", "2020-07-06", "2022-10-28");
+  projekte (bezeichnung, beginn, abschluss)
+VALUES
+  ("Money Money Money", "2020-07-06", "2022-10-28");
 
 
 --
 -- Aufgabe 8
 --
-
 SELECT
-	m.nachname, m.vorname, p.bezeichnung, m.personalnummer
+  m.nachname, m.vorname, p.bezeichnung, m.personalnummer
 FROM
-	mitarbeiter m
+  mitarbeiter m
 JOIN
-	mitarbeiter_projekte mp ON m.id = mp.id_mitarbeiter
+  mitarbeiter_projekte mp ON m.id = mp.id_mitarbeiter
 JOIN
-	projekte p ON p.id = mp.id_projekt
+  projekte p ON p.id = mp.id_projekt
 WHERE
-	p.bezeichnung = "Aus Grau wird Bunt"    
+  p.bezeichnung = "Aus Grau wird Bunt"
 ORDER BY
-	m.personalnummer DESC;
-	
+  m.personalnummer DESC;
+
 /* combined JOIN	
 SELECT
-	m.nachname, m.vorname, p.bezeichnung, m.personalnummer
+  m.nachname, m.vorname, p.bezeichnung, m.personalnummer
 FROM
-	mitarbeiter m, projekte p, mitarbeiter_projekte mp
+  mitarbeiter m, projekte p, mitarbeiter_projekte mp
 WHERE
-	p.id = mp.id_projekt AND
-    m.id = mp.id_mitarbeiter AND
-	p.bezeichnung = "Aus Grau wird Bunt"   
+  p.id = mp.id_projekt AND
+  m.id = mp.id_mitarbeiter AND
+  p.bezeichnung = "Aus Grau wird Bunt"
 ORDER BY
-	m.personalnummer DESC;
+  m.personalnummer DESC;
 */
+
 
 --
 -- Aufgabe 9
 --
 SELECT
-	vorname, nachname, geburtsdatum
+  vorname, nachname, geburtsdatum
 FROM
-	mitarbeiter 
+  mitarbeiter 
 ORDER BY
-	geburtsdatum DESC;
-	
+  geburtsdatum DESC;
+
 
 -- nur das Küken
 SELECT
-	CONCAT(vorname, " ", nachname, ", geboren am ", geburtsdatum)
-	AS 'Das Küken ist'
+  CONCAT(vorname, " ", nachname, ", geboren am ", geburtsdatum) AS 'Das Küken ist'
 FROM
-	mitarbeiter 
+  mitarbeiter 
 ORDER BY
-	geburtsdatum DESC
+  geburtsdatum DESC
 LIMIT
-	1;
+  1;
 
 
 --
 -- Aufgabe 10
 --
 INSERT INTO
-	projekte(bezeichnung)
+  projekte(bezeichnung)
 VALUES
-	("Grün, Grüner, unsere Stadt"),
-    ("Wein-Herbst"),
-    ("Schwimmende Tribüne");
-	
-	
+  ("Grün, Grüner, unsere Stadt"),
+  ("Wein-Herbst"),
+  ("Schwimmende Tribüne");
+
+
 --
 -- Aufgabe 11
 --
 UPDATE
-	mitarbeiter
+  mitarbeiter
 SET
-	nachname = "Holstein-Groß"
+  nachname = "Holstein-Groß"
 WHERE
-	nachname = "Holstein";
-	
-	
+  nachname = "Holstein";
+
+
 --
 -- Aufgabe 12
 --
 UPDATE
-	mitarbeiter_projekte
+  mitarbeiter_projekte
 SET
-	id_projekt = (SELECT id FROM projekte p WHERE p.bezeichnung = "Schwimmende Tribüne")
+  id_projekt = (SELECT id FROM projekte p WHERE p.bezeichnung = "Schwimmende Tribüne")
 WHERE
-	id_projekt = 
-    	(SELECT id FROM projekte p WHERE p.bezeichnung = "Aus Grau wird Bunt") AND
-    id_mitarbeiter = 
-    	(SELECT id FROM mitarbeiter m WHERE m.nachname = "Holstein-Groß");
+  id_projekt = (SELECT id FROM projekte p WHERE p.bezeichnung = "Aus Grau wird Bunt") AND
+  id_mitarbeiter = (SELECT id FROM mitarbeiter m WHERE m.nachname = "Holstein-Groß");
 
--- add beginn date to 'projekt'
 
 UPDATE
-	projekte
+  projekte
 SET
-	beginn = "2022-08-11"
+  beginn = "2022-08-11"
 WHERE
-	bezeichnung = "Schwimmende Tribüne";
+  bezeichnung = "Schwimmende Tribüne";
 
 
 --
 -- Aufgabe 13
 --
 UPDATE
-	projekte
+  projekte
 SET
-	abschluss = DATE_ADD(abschluss, INTERVAL 3 MONTH)
+  abschluss = DATE_ADD(abschluss, INTERVAL 3 MONTH)
 WHERE
-	bezeichnung = "Aus Grau wird Bunt";
-	
-	
+  bezeichnung = "Aus Grau wird Bunt";
+
+
 --
 -- Aufgabe 14
 --
 SELECT
-	nachname, vorname
+  nachname, vorname
 FROM
-	mitarbeiter
+  mitarbeiter
 WHERE
-	CONCAT(vorname, nachname) LIKE '%o%'
+  CONCAT(vorname, nachname) LIKE '%o%'
 ORDER BY
-	nachname;
-	
-	
+  nachname;
+
+
 --
 -- Aufgabe 15
 --
 UPDATE
-	projekte
+  projekte
 SET
-	beginn = "2022-07-01"
+  beginn = "2022-07-01"
 WHERE
-	bezeichnung = "Grün, Grüner, unsere Stadt";
+  bezeichnung = "Grün, Grüner, unsere Stadt";
 
 
 UPDATE
-	projekte
+  projekte
 SET
-	beginn = "2021-09-12"
+  beginn = "2021-09-12"
 WHERE
-	bezeichnung = "Wein-Herbst";
+  bezeichnung = "Wein-Herbst";
 
 
 --
 -- Aufgabe 16
 --
 INSERT INTO
-	ressorts (bezeichnung)
+  ressorts (bezeichnung)
 VALUES
-	("Bauamt");
-	
+  ("Bauamt");
+
 
 INSERT INTO
-	orte (plz, ortsname)
+  orte (plz, ortsname)
 VALUES
-	("22946", "Trittau"),
-	("56235", "Ransbach-Baumbach"),
-	("56154", "Boppard");
-	
+  ("22946", "Trittau"),
+  ("56235", "Ransbach-Baumbach"),
+  ("56154", "Boppard");
+
 
 INSERT INTO
-	mitarbeiter (personalnummer, nachname, vorname, strasse, hausnummer, ort, ressort, geburtsdatum)
+  mitarbeiter (personalnummer, nachname, vorname, strasse, hausnummer, ort, ressort, geburtsdatum)
 VALUES
-	("3206555","Mallmann", "Peter", "Hinter den Höfen", "11", (SELECT id FROM orte WHERE plz = "22946"), (SELECT id FROM ressorts WHERE bezeichnung = "Bauamt"), "1980-02-29"),
-	("3307951", "Wieselbaum", "Joachim", "Lahnstr.", "24", (SELECT id FROM orte WHERE plz = "56235"), (SELECT id FROM ressorts WHERE bezeichnung = "Bauamt"), "1982-05-05"),
-	("3408069", "Bier", "Justin", "Mainzer Str.", "34", (SELECT id FROM orte WHERE plz = "56154"), (SELECT id FROM ressorts WHERE bezeichnung = "Bauamt"), "2002-09-13");
+  ("3206555","Mallmann", "Peter", "Hinter den Höfen", "11", (SELECT id FROM orte WHERE plz = "22946"), (SELECT id FROM ressorts WHERE bezeichnung = "Bauamt"), "1980-02-29"),
+  ("3307951", "Wieselbaum", "Joachim", "Lahnstr.", "24", (SELECT id FROM orte WHERE plz = "56235"), (SELECT id FROM ressorts WHERE bezeichnung = "Bauamt"), "1982-05-05"),
+  ("3408069", "Bier", "Justin", "Mainzer Str.", "34", (SELECT id FROM orte WHERE plz = "56154"), (SELECT id FROM ressorts WHERE bezeichnung = "Bauamt"), "2002-09-13");
 
 
 --
 -- Aufgabe 17
 --
 SELECT
-	nachname, vorname, geburtsdatum
+  nachname, vorname, geburtsdatum
 FROM
-	mitarbeiter
+  mitarbeiter
 WHERE
-	MONTH(geburtsdatum) = Month(NOW())
-	-- MONTH(geburtsdatum) = Month(CURDATE())
+  MONTH(geburtsdatum) = Month(NOW())
+--MONTH(geburtsdatum) = Month(CURDATE())
 ORDER BY
-	nachname DESC;
-	
-	
+  nachname DESC;
+
+
 --
 -- Aufgabe 18
 --
 INSERT INTO
-	mitarbeiter_projekte
+  mitarbeiter_projekte
 VALUES
-	(
-		(SELECT id FROM mitarbeiter WHERE nachname = "Neumann"), 
-		(SELECT id FROM projekte WHERE bezeichnung = "Money Money Money")
-	);
+  ((SELECT id FROM mitarbeiter WHERE nachname = "Neumann"), (SELECT id FROM projekte WHERE bezeichnung = "Money Money Money"));
 
 
 --
 -- Aufgabe 19
 --
 SELECT
-	vorname, nachname
+  vorname, nachname
 FROM
-	mitarbeiter
+  mitarbeiter
 WHERE
-	vorname LIKE "s%";
-	
-	
+  vorname LIKE "s%";
+
+
 --
 -- Aufgabe 20
 --
 ALTER TABLE
-	mitarbeiter
+  mitarbeiter
 ADD
-	geschlecht ENUM('Divers', 'Frau', 'Mann') DEFAULT 'Divers';
-	
+  geschlecht ENUM('Divers', 'Frau', 'Mann') DEFAULT 'Divers';
+
 
 UPDATE
-	mitarbeiter
+  mitarbeiter
 SET
-	geschlecht = "Frau"
+  geschlecht = "Frau"
 WHERE
-	vorname
-IN 
-	("Henriette", "Anette", "Lisa", "Sabiene");
-	
-
-UPDATE
-	mitarbeiter
-SET
-	geschlecht = "Mann"
-WHERE
-	vorname 
+  vorname
 IN
-	("Manfred", "Felix", "Peter", "Joachim");
+  ("Henriette", "Anette", "Lisa", "Sabiene");
 
-	
+
+UPDATE
+  mitarbeiter
+SET
+  geschlecht = "Mann"
+WHERE
+  vorname 
+IN
+  ("Manfred", "Felix", "Peter", "Joachim");
+
+
 --	
 -- Aufgabe 21
 --
 DELETE FROM
-	projekte
+  projekte
 WHERE
-	bezeichnung="Wein-Herbst";
-	
-	
+  bezeichnung="Wein-Herbst";
+
+
 --
 -- Aufgabe 22
 --
 SELECT
-	*
+  *
 FROM
-	mitarbeiter 
+  mitarbeiter
 WHERE
-	geschlecht = "Mann"
+  geschlecht = "Mann"
 ORDER BY
-	personalnummer;
-	
-	
+  personalnummer;
+
+
 --
 -- Aufgabe 23
 --
 SELECT
-	m.nachname, m.vorname, m.strasse, m.hausnummer, o.plz, o.ortsname
+  m.nachname, m.vorname, m.strasse, m.hausnummer, o.plz, o.ortsname
 FROM
-	mitarbeiter m 
+  mitarbeiter m
 JOIN
-	orte o ON m.ort = o.id
+  orte o ON m.ort = o.id
 WHERE
-	m.ressort = (SELECT id FROM ressorts r WHERE r.bezeichnung = "Bauamt")
-ORDER BY 
-	o.plz;
+  m.ressort = (SELECT id FROM ressorts r WHERE r.bezeichnung = "Bauamt")
+ORDER BY
+  o.plz;
 
 
 /* combined JOIN
 SELECT
-	m.nachname, m.vorname, m.strasse, m.hausnummer, o.plz, o.ortsname
+  m.nachname, m.vorname, m.strasse, m.hausnummer, o.plz, o.ortsname
 FROM
-	mitarbeiter m, orte o
+  mitarbeiter m, orte o
 WHERE
-	m.ressort = (SELECT id FROM ressorts r WHERE r.bezeichnung = "Bauamt") AND
-    m.ort = o.id
+  m.ressort = (SELECT id FROM ressorts r WHERE r.bezeichnung = "Bauamt") AND
+  m.ort = o.id
 ORDER BY
-	o.plz;
+  o.plz;
 */
-	
 
+
+--
 -- Aufgabe 24
+--
 
--- Just deleting the entries
-
+-- Just deleting the entries...
 UPDATE
-	mitarbeiter
+  mitarbeiter
 SET
-	geschlecht = null;
-	
--- Delete the whole column
+  geschlecht = null;
 
+-- ... or delete the whole column
 ALTER TABLE
-	mitarbeiter
+  mitarbeiter
 DROP COLUMN
-	geschlecht;
-	
-	
+  geschlecht;
+
+
 --
 -- Aufgabe 25
 --
-CREATE TABLE rolle (
-	id INTEGER AUTO_INCREMENT,
-	bezeichnung VARCHAR(40) NOT NULL,
-    
-    PRIMARY KEY (id)
+CREATE TABLE rollen (
+  id INTEGER AUTO_INCREMENT,
+  bezeichnung VARCHAR(40) NOT NULL,
+
+  PRIMARY KEY (id)
 );
 
 
-ALTER TABLE 
-	projekte
-ADD COLUMN 
-	projektleitung INTEGER; -- id der Projektleitung
-	
-ALTER TABLE 
-	projekte
+ALTER TABLE
+  projekte
+ADD COLUMN
+  projektleitung INTEGER; -- id der Projektleitung
+
+ALTER TABLE
+  projekte
 ADD CONSTRAINT
-	projektleitung_mitarbeiter
+  projektleitung_mitarbeiter
 FOREIGN KEY
-	(projektleitung) REFERENCES mitarbeiter(id);
+  (projektleitung) REFERENCES mitarbeiter(id);
 
 
 INSERT INTO
-	rolle (bezeichnung)
+  rollen (bezeichnung)
 VALUES
-	("Mitarbeiter:in"), 
-    ("Auszubildende:r");
+  ("Mitarbeiter:in"),
+  ("Auszubildende:r");
 
 
 -- Variable to buffer the id for "Mitarbeiter:in"
-SET @default_rolle = (SELECT id FROM rolle WHERE bezeichnung = "Mitarbeiter:in");
+SET @default_rolle = (SELECT id FROM rollen WHERE bezeichnung = "Mitarbeiter:in");
 
-ALTER TABLE 
-	mitarbeiter
-ADD COLUMN 
-	(rolle_id INTEGER DEFAULT @default_rolle);
+ALTER TABLE
+  mitarbeiter
+ADD COLUMN
+  (rolle_id INTEGER DEFAULT @default_rolle);
 
-ALTER TABLE 
-	mitarbeiter 
+ALTER TABLE
+  mitarbeiter
 ADD CONSTRAINT
-	rolle
+  rolle
 FOREIGN KEY
-	(rolle_id) REFERENCES rolle(id);
+	(rolle_id) REFERENCES rollen(id);
 
 
 UPDATE
-	projekte
+  projekte
 SET
-	projektleitung = (SELECT id FROM mitarbeiter m WHERE m.personalnummer = "2701007")
+  projektleitung = (SELECT id FROM mitarbeiter m WHERE m.personalnummer = "2701007")
 WHERE
-	bezeichnung = "Aus Grau wird Bunt";
+  bezeichnung = "Aus Grau wird Bunt";
 
 
 UPDATE
-	mitarbeiter
+  mitarbeiter
 SET
-	rolle_id = (SELECT id FROM rolle WHERE bezeichnung = "Auszubildende:r")
+  rolle_id = (SELECT id FROM rollen WHERE bezeichnung = "Auszubildende:r")
 WHERE
-	vorname IN ("Sabiene", "Lisa");
+  vorname IN ("Sabiene", "Lisa");
 
-/*	
-UPDATE
-	mitarbeiter_projekte
-SET
-	rolle_id = (SELECT id FROM rolle WHERE bezeichnung = "Auszubildende:r")
-WHERE
-	id_mitarbeiter = (SELECT id FROM mitarbeiter m WHERE m.personalnummer = "3206369") OR 
-    id_mitarbeiter =  (SELECT id FROM mitarbeiter m WHERE m.personalnummer IS NULL);
-*/  
-	
-	
+
 --
 -- Aufgabe 26
 --
 UPDATE
-	projekte
+  projekte
 SET
-	abschluss = DATE_ADD(abschluss, INTERVAL 1 MONTH);
+  abschluss = DATE_ADD(abschluss, INTERVAL 1 MONTH);
 -- null automatically not in set
 
 
@@ -615,123 +597,122 @@ SET
 -- Aufgabe 27
 --
 INSERT INTO
-	ressorts (bezeichnung)
+  ressorts (bezeichnung)
 VALUES
-	("Ordnungsamt");
+  ("Ordnungsamt");
 
 
 INSERT INTO
-	orte (plz, ortsname)
+  orte (plz, ortsname)
 VALUES
-	("56204", "Hillscheid"),
-	("56203", "Grenzau");
+  ("56204", "Hillscheid"),
+  ("56203", "Grenzau");
 
 
 INSERT INTO
-	mitarbeiter (personalnummer, nachname, vorname, strasse, hausnummer, ort, ressort, geburtsdatum)
+  mitarbeiter (personalnummer, nachname, vorname, strasse, hausnummer, ort, ressort, geburtsdatum)
 VALUES
-	("3509159", "Walder", "Jessica", "Schneebergstr.", "36", (SELECT id FROM orte WHERE plz = "56204"), (SELECT id FROM ressorts WHERE bezeichnung = "Ordnungsamt"), "1986-10-12"),
-	("3510582", "Hegenbergh", "Hendrik", "Hollersborn", "35", (SELECT id FROM orte WHERE ortsname="Grenzau"), (SELECT id FROM ressorts WHERE bezeichnung = "Ordnungsamt"), "1979-01-01");
+  ("3509159", "Walder", "Jessica", "Schneebergstr.", "36", (SELECT id FROM orte WHERE plz = "56204"), (SELECT id FROM ressorts WHERE bezeichnung = "Ordnungsamt"), "1986-10-12"),
+  ("3510582", "Hegenbergh", "Hendrik", "Hollersborn", "35", (SELECT id FROM orte WHERE ortsname="Grenzau"), (SELECT id FROM ressorts WHERE bezeichnung = "Ordnungsamt"), "1979-01-01");
 
--- Add table "verstoss"
 
-CREATE TABLE verstoss (
-	id INTEGER AUTO_INCREMENT,
-	taeterIn_id INTEGER NOT NULL,
-	grund TEXT NOT NULL,
-	tatdatum DATE NOT NULL,
-	tatzeit TIME NOT NULL,
-	erstellt_am DATETIME DEFAULT CURRENT_TIMESTAMP,
-	editiert_am DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-	
-	PRIMARY KEY (id)
+CREATE TABLE verstoesse (
+  id INTEGER AUTO_INCREMENT,
+  taeterIn_id INTEGER NOT NULL,
+  grund TEXT NOT NULL,
+  tatdatum DATE NOT NULL,
+  tatzeit TIME NOT NULL,
+  erstellt_am DATETIME DEFAULT CURRENT_TIMESTAMP,
+  editiert_am DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+
+  PRIMARY KEY (id)
 );
 
 -- the 31'er
 CREATE TABLE verraeterIn_verstoss (
-	mitarbeiter_id INTEGER NOT NULL, -- traiting dorks
-	verstoss_id INTEGER NOT NULL
+  mitarbeiter_id INTEGER NOT NULL, -- traiting dorks
+  verstoss_id INTEGER NOT NULL
 );
 
-ALTER TABLE 
-	verstoss
-ADD CONSTRAINT 
-	taeterIn FOREIGN KEY (taeterIn_id) REFERENCES mitarbeiter(id);
-	
-ALTER TABLE 
-verraeterIn_verstoss
+ALTER TABLE
+  verstoesse
 ADD CONSTRAINT
-	verraeterIn FOREIGN KEY (mitarbeiter_id) REFERENCES mitarbeiter(id);
+  taeterIn FOREIGN KEY (taeterIn_id) REFERENCES mitarbeiter(id);
 
-ALTER TABLE 
-	verraeterIn_verstoss
-ADD CONSTRAINT 
-	verstoss FOREIGN KEY (verstoss_id) REFERENCES verstoss(id);
+ALTER TABLE
+  verraeterIn_verstoss
+ADD CONSTRAINT
+  verraeterIn FOREIGN KEY (mitarbeiter_id) REFERENCES mitarbeiter(id);
+
+ALTER TABLE
+  verraeterIn_verstoss
+ADD CONSTRAINT
+  verstoss FOREIGN KEY (verstoss_id) REFERENCES verstoesse(id);
 
 
 INSERT INTO
-	verstoss (taeterIn_id, grund, tatdatum, tatzeit)
+  verstoesse (taeterIn_id, grund, tatdatum, tatzeit)
 VALUES
-	((SELECT id FROM mitarbeiter WHERE nachname = "Neuneier" AND vorname = "Sabiene"), "Hat eisern auf ihre Pause bestanden!", "2020-04-01", "19:42:56");
-	-- I can't reference to sex because we killed sex
-	
-	
+  ((SELECT id FROM mitarbeiter WHERE nachname = "Neuneier" AND vorname = "Sabiene"), "Hat eisern auf ihre Pause bestanden!", "2020-04-01", "19:42:56");
+  -- I can't reference to sex because we killed sex
+
+
 INSERT INTO
-	verraeterIn_verstoss
+  verraeterIn_verstoss
 VALUES
-	((SELECT id FROM mitarbeiter WHERE personalnummer = "3509159"), (SELECT v.id FROM verstoss v, mitarbeiter m WHERE v.taeterIn_id = m.id AND vorname = "Sabiene" ORDER BY tatdatum DESC, tatzeit DESC LIMIT 1)),
-	((SELECT id FROM mitarbeiter WHERE personalnummer = "3510582"), (SELECT v.id FROM verstoss v, mitarbeiter m WHERE v.taeterIn_id = m.id AND vorname = "Sabiene" ORDER BY tatdatum DESC, tatzeit DESC LIMIT 1));
+  ((SELECT id FROM mitarbeiter WHERE personalnummer = "3509159"), (SELECT v.id FROM verstoesse v, mitarbeiter m WHERE v.taeterIn_id = m.id AND vorname = "Sabiene" ORDER BY tatdatum DESC, tatzeit DESC LIMIT 1)),
+  ((SELECT id FROM mitarbeiter WHERE personalnummer = "3510582"), (SELECT v.id FROM verstoesse v, mitarbeiter m WHERE v.taeterIn_id = m.id AND vorname = "Sabiene" ORDER BY tatdatum DESC, tatzeit DESC LIMIT 1));
 
 
 -- debugging purposes
 INSERT INTO
-	verstoss (taeterIn_id, grund, tatdatum, tatzeit)
+  verstoesse (taeterIn_id, grund, tatdatum, tatzeit)
 VALUES
-	((SELECT id FROM mitarbeiter WHERE nachname = "Neuneier" AND vorname = "Sabiene"), "Hat pünktlich Feierabend gemacht!", "2020-04-03", "19:56:42");
+  ((SELECT id FROM mitarbeiter WHERE nachname = "Neuneier" AND vorname = "Sabiene"), "Hat pünktlich Feierabend gemacht!", "2020-04-03", "19:56:42");
 -- end debugging purposes
-	
-	
+
+
 --
 -- Aufgabe 28
 --
 SELECT
-	m.vorname, m.nachname, o.ortsname
+  m.vorname, m.nachname, o.ortsname
 FROM
-	mitarbeiter m
-JOIN 
-	orte o ON m.ort = o.id
+  mitarbeiter m
+JOIN
+  orte o ON m.ort = o.id
 WHERE NOT
-	o.ortsname = "Oer-Erkenschwick";
-	
+  o.ortsname = "Oer-Erkenschwick";
+
 -- alternative
 SELECT
-	m.vorname, m.nachname, o.ortsname
+  m.vorname, m.nachname, o.ortsname
 FROM
-	mitarbeiter m
-JOIN 
-	orte o ON m.ort = o.id
+  mitarbeiter m
+JOIN
+  orte o ON m.ort = o.id
 WHERE
-	o.ortsname NOT IN ("Oer-Erkenschwick");
-	
+  o.ortsname NOT IN ("Oer-Erkenschwick");
+
 -- alternative
 SELECT
-	m.vorname, m.nachname, o.ortsname
+  m.vorname, m.nachname, o.ortsname
 FROM
-	mitarbeiter m
-JOIN 
-	orte o ON m.ort = o.id
+  mitarbeiter m
+JOIN
+  orte o ON m.ort = o.id
 WHERE
-	o.ortsname != ("Oer-Erkenschwick");
+  o.ortsname != ("Oer-Erkenschwick");
 
 
 /* combined JOIN
 SELECT
-	m.vorname, m.nachname, o.ortsname
+  m.vorname, m.nachname, o.ortsname
 FROM
-	mitarbeiter m, orte o 
+  mitarbeiter m, orte o 
 WHERE
-	m.ort = o.id AND
-    o.ortsname NOT IN ("Oer-Erkenschwick");
+  m.ort = o.id AND
+  o.ortsname NOT IN ("Oer-Erkenschwick");
 */
 
 
@@ -739,62 +720,62 @@ WHERE
 -- Aufgabe 29
 --
 SELECT
-	m.vorname, m.nachname, p.bezeichnung
+  m.vorname, m.nachname, p.bezeichnung
 FROM
-	mitarbeiter m
-JOIN 
-	mitarbeiter_projekte mp ON m.id = mp.id_mitarbeiter
+  mitarbeiter m
 JOIN
-	projekte p ON p.id = mp.id_projekt
+  mitarbeiter_projekte mp ON m.id = mp.id_mitarbeiter
+JOIN
+  projekte p ON p.id = mp.id_projekt
 WHERE
-	p.bezeichnung = "Aus Grau wird Bunt";
+  p.bezeichnung = "Aus Grau wird Bunt";
 
 /* combined JOIN
 SELECT
-	m.vorname, m.nachname, p.bezeichnung
+  m.vorname, m.nachname, p.bezeichnung
 FROM
-	mitarbeiter m, projekte p, mitarbeiter_projekte mp
+  mitarbeiter m, projekte p, mitarbeiter_projekte mp
 WHERE
-	m.id = mp.id_mitarbeiter AND
-	p.id = mp.id_projekt AND
-    p.bezeichnung = "Aus Grau wird Bunt";
+  m.id = mp.id_mitarbeiter AND
+  p.id = mp.id_projekt AND
+  p.bezeichnung = "Aus Grau wird Bunt";
 */
 
-	
---	
+
+--
 -- Aufgabe 30
 --
 INSERT INTO
-	mitarbeiter_projekte (id_mitarbeiter, id_projekt)
+  mitarbeiter_projekte (id_mitarbeiter, id_projekt)
 SELECT
-	id_mitarbeiter, (SELECT id FROM projekte p WHERE p.bezeichnung = "Grün, Grüner, unsere Stadt")
+  id_mitarbeiter, (SELECT id FROM projekte p WHERE p.bezeichnung = "Grün, Grüner, unsere Stadt")
 FROM
-	mitarbeiter_projekte
+  mitarbeiter_projekte
 WHERE
-	id_projekt = (SELECT id FROM projekte p WHERE p.bezeichnung = "Aus Grau wird Bunt") AND
-    id_mitarbeiter != (SELECT id FROM mitarbeiter m WHERE m.nachname = "Neumann");
+  id_projekt = (SELECT id FROM projekte p WHERE p.bezeichnung = "Aus Grau wird Bunt") AND
+  id_mitarbeiter != (SELECT id FROM mitarbeiter m WHERE m.nachname = "Neumann");
 
 
 /*
 -- change the projekt id without "history"
 UPDATE
-	mitarbeiter_projekte mp
+  mitarbeiter_projekte mp
 SET
-	id_projekt = (SELECT id FROM projekte p WHERE p.bezeichnung = "Grün, Grüner, unsere Stadt")
+  id_projekt = (SELECT id FROM projekte p WHERE p.bezeichnung = "Grün, Grüner, unsere Stadt")
 WHERE
-	id_projekt = (SELECT id FROM projekte p WHERE p.bezeichnung = "Aus Grau wird Bunt") AND
-    mp.id_mitarbeiter != (SELECT id FROM mitarbeiter m WHERE m.nachname = "Neumann");
+  id_projekt = (SELECT id FROM projekte p WHERE p.bezeichnung = "Aus Grau wird Bunt") AND
+  mp.id_mitarbeiter != (SELECT id FROM mitarbeiter m WHERE m.nachname = "Neumann");
 
 
 -- it's not clear which state Mrs. Neumann gets. Maybe she's the last contact?
 -- if not, delete the entry ->
 
 DELETE FROM
-	mitarbeiter_projekte
+  mitarbeiter_projekte
 WHERE
-	id_mitarbeiter = (SELECT id FROM mitarbeiter m WHERE m.nachname = "Neumann") AND
-	id_projekt = (SELECT id FROM projekte p WHERE p.bezeichnung = "Aus Grau wird Bunt");
-*/	
+  id_mitarbeiter = (SELECT id FROM mitarbeiter m WHERE m.nachname = "Neumann") AND
+  id_projekt = (SELECT id FROM projekte p WHERE p.bezeichnung = "Aus Grau wird Bunt");
+*/
 
 
 --
