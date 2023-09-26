@@ -1,7 +1,6 @@
 -- Solutions for "Aufgaben SQL I"
 -- by urbi@orbi.baby as PD
 
-
 --
 -- Aufgabe 1
 --
@@ -58,7 +57,6 @@ WHERE
   nachname = "Groß" AND
   vorname = "Henriette";
 
-
 UPDATE
   mitarbeiter
 SET
@@ -74,7 +72,6 @@ SET
 WHERE
   nachname = "Ganz" AND
   vorname = "Anette";
-
 
 UPDATE
   mitarbeiter
@@ -356,7 +353,6 @@ SET
 WHERE
   bezeichnung = "Grün, Grüner, unsere Stadt";
 
-
 UPDATE
   projekte
 SET
@@ -441,7 +437,6 @@ WHERE
   vorname
 IN
   ("Henriette", "Anette", "Lisa", "Sabiene");
-
 
 UPDATE
   mitarbeiter
