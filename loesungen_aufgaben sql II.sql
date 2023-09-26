@@ -199,7 +199,7 @@ WHERE
 
 -- we don't have a rolle "Projektleiter:in" in our system
 SELECT
-	r.bezeichnung, COUNT(r.bezeichnung) Anzahl
+  r.bezeichnung, COUNT(r.bezeichnung) Anzahl
 FROM
   mitarbeiter m
 JOIN
