@@ -1,6 +1,12 @@
 -- Solutions for "Aufgaben SQL II"
 -- by urbi@orbi.baby as PD
 
+-- preparation: Add unique constraint to "mitarbeiter_projekte"
+ALTER TABLE
+  mitarbeiter_projekte
+ADD CONSTRAINT
+  unique_ma_prj UNIQUE (id_mitarbeiter, id_projekt);
+
 --
 -- Aufgabe 1
 --
