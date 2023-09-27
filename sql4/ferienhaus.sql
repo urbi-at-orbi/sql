@@ -1,3 +1,15 @@
+-- by urbi@orbi.baby as PD
+-- It's the db-scheme for an IHK exam excercise (IHK SQL IV)
+
+-- I left the attribute "Tage" in "Mietvertrag" blank. It's a nice excercise. 
+-- To compute the values for "Tage" in "Mietvertrag" you have to do that in SQL.
+/*
+UPDATE
+  Mietvertrag
+SET 
+  Tage = DATEDIFF(Ende, Beginn) + 1;
+*/  
+
 DROP DATABASE IF EXISTS ferienhaus;
 
 CREATE DATABASE ferienhaus;
@@ -61,9 +73,6 @@ CREATE TABLE Adresse (
 );
 
 
-
-
-
 ALTER TABLE
   Ferienhaus
 ADD CONSTRAINT
@@ -82,7 +91,6 @@ FOREIGN KEY
 REFERENCES
   Adresse(Adresse_ID);
 
-
 ALTER TABLE
   Eigentuemer
 ADD CONSTRAINT
@@ -92,7 +100,6 @@ FOREIGN KEY
 REFERENCES
   Adresse(Adresse_ID);
  
-
 ALTER TABLE
   Kunde
 ADD CONSTRAINT
@@ -130,7 +137,7 @@ REFERENCES
   Kunde(Kunde_ID);
 
 
--- fill data to DATABASE
+-- seed DATABASE
 
 INSERT INTO
   adresse (adresse)
@@ -177,10 +184,8 @@ VALUES
   (4, 2, 2),
   (4, 7, 1);
   
-  
  
 SELECT COUNT(*) INTO @ak FROM kunde;
-
 
 INSERT INTO
   mietvertrag (Ferienhaus_ID, Kunde_ID, Beginn, Ende)
@@ -373,6 +378,14 @@ VALUES
   (2, FLOOR(RAND()*@ak)+1, CONCAT(@year, "-12-23"), CONCAT(@year, "-12-31"));
 */
 
+-- just delete the /* and */ to automatically insert the "Tage" attribute
+/*
+UPDATE
+  Mietvertrag
+SET
+  Tage = DATEDIFF(Ende, Beginn) + 1;
+*/  
+
 
 SELECT COUNT(*) INTO @af FROM ferienhaus; -- Number of Ferienhäuser
 
@@ -412,3 +425,6 @@ VALUES
   (FLOOR(RAND()*@af)+1, CONCAT(@year, "-", FLOOR(RAND()*@mt)+1, "-", FLOOR(RAND()*28)+1), "Tote Katze in Mikrowelle"),
   (FLOOR(RAND()*@af)+1, CONCAT(@year, "-", FLOOR(RAND()*@mt)+1, "-", FLOOR(RAND()*28)+1), "Tote Katze unter Mikrowelle"),
   (FLOOR(RAND()*@af)+1, CONCAT(@year, "-", FLOOR(RAND()*@mt)+1, "-", FLOOR(RAND()*28)+1), "Tote Mikrokatze in der Dusche");
+
+
+
