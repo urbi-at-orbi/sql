@@ -212,3 +212,15 @@ JOIN
   rollen r ON m.rolle_id = r.id
 GROUP BY
   r.bezeichnung
+
+
+--
+-- Aufgabe 9
+--
+
+Done
+
+
+--
+-- Aufgabe 10
+--
