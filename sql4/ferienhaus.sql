@@ -389,7 +389,7 @@ VALUES
   (FLOOR(RAND()*@af)+1, CONCAT(@year, "-", FLOOR(RAND()*@mt)+1, "-", FLOOR(RAND()*28)+1), "Staub unter den Betten"),
   (FLOOR(RAND()*@af)+1, CONCAT(@year, "-", FLOOR(RAND()*@mt)+1, "-", FLOOR(RAND()*28)+1), "Tote Katze in Mikrowelle"),
   (FLOOR(RAND()*@af)+1, CONCAT(@year, "-", FLOOR(RAND()*@mt)+1, "-", FLOOR(RAND()*28)+1), "Tote Katze unter Mikrowelle"),
-  (FLOOR(RAND()*@af)+1, CONCAT(@year, "-", FLOOR(RAND()*@mt)+1, "-", FLOOR(RAND()*28)+1), "Tote Mikrokatze in der Dusche")
+  (FLOOR(RAND()*@af)+1, CONCAT(@year, "-", FLOOR(RAND()*@mt)+1, "-", FLOOR(RAND()*28)+1), "Tote Mikrokatze in der Dusche"),
   (FLOOR(RAND()*@af)+1, CONCAT(@year, "-", FLOOR(RAND()*@mt)+1, "-", FLOOR(RAND()*28)+1), "Kotreste im Bett"),
   (FLOOR(RAND()*@af)+1, CONCAT(@year, "-", FLOOR(RAND()*@mt)+1, "-", FLOOR(RAND()*28)+1), "Bett fehlt"),
   (FLOOR(RAND()*@af)+1, CONCAT(@year, "-", FLOOR(RAND()*@mt)+1, "-", FLOOR(RAND()*28)+1), "Weißes Pulver auf dem Toilettenkasten"),
@@ -400,7 +400,7 @@ VALUES
   (FLOOR(RAND()*@af)+1, CONCAT(@year, "-", FLOOR(RAND()*@mt)+1, "-", FLOOR(RAND()*28)+1), "Staub unter den Betten"),
   (FLOOR(RAND()*@af)+1, CONCAT(@year, "-", FLOOR(RAND()*@mt)+1, "-", FLOOR(RAND()*28)+1), "Tote Katze in Mikrowelle"),
   (FLOOR(RAND()*@af)+1, CONCAT(@year, "-", FLOOR(RAND()*@mt)+1, "-", FLOOR(RAND()*28)+1), "Tote Katze unter Mikrowelle"),
-  (FLOOR(RAND()*@af)+1, CONCAT(@year, "-", FLOOR(RAND()*@mt)+1, "-", FLOOR(RAND()*28)+1), "Tote Mikrokatze in der Dusche")
+  (FLOOR(RAND()*@af)+1, CONCAT(@year, "-", FLOOR(RAND()*@mt)+1, "-", FLOOR(RAND()*28)+1), "Tote Mikrokatze in der Dusche"),
   (FLOOR(RAND()*@af)+1, CONCAT(@year, "-", FLOOR(RAND()*@mt)+1, "-", FLOOR(RAND()*28)+1), "Kotreste im Bett"),
   (FLOOR(RAND()*@af)+1, CONCAT(@year, "-", FLOOR(RAND()*@mt)+1, "-", FLOOR(RAND()*28)+1), "Bett fehlt"),
   (FLOOR(RAND()*@af)+1, CONCAT(@year, "-", FLOOR(RAND()*@mt)+1, "-", FLOOR(RAND()*28)+1), "Weißes Pulver auf dem Toilettenkasten"),
